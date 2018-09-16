@@ -248,7 +248,7 @@ db.influencers.aggregate([{$match : {"suspicious" : false}}, {$group: {_id: "pk"
 Schema: 
 Database name: affable_timeseries, 
 collection name: influencers_timseries
-``` json
+```
 {
 	"pk": long (8) INDEXED,
 	"timestamp_hour": DateTime(4) INDEXED,
