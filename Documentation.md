@@ -41,7 +41,7 @@
 #### Design 
 > Assuming one request to Mockstagram API takes 100ms and a single nodejs instance can handle 1k concurrent connections (single core system). A single instance can process ~600K requests a minute. To make this system fault tolerant, we will scale this horizontally to 3 instances and use application level sharding.
 
-Diagram ??????
+![alt text](designs/poller.jpg)
 
 - It is a stateless system. 
 - There are 3 nodes (or instances) and a locator service. This service makes sure that all 3 nodes are available and rebalance load if one of them goes down. 
@@ -135,7 +135,7 @@ while true:
 - Consumer groups: 3 consumer groups each for data warehousing, data processing, and data ingestion.
 - Format of data: JSON (for additional metadata, we can prefer other formats like transit)
 
-Diagram????
+![alt text](designs/kafka_cluster.jpg)
 
 
 ## Data Processing pipeline
@@ -303,7 +303,7 @@ It is fully managed persistent data warehouse
 Highly available and performant for running complex queries (e.g. joins)
 Since, we need to store data for analysis later in time. There is no need to stream data to BigQuery. We will rather use batch upload solutions.
 
-Diagram????
+![alt text](designs/data_warehouse.jpg)
 
 - We will use secor to dump kafka logs to Google cloud storage persistently. Then a loading script will insert data in BigQuery in batch.
 - Partitioned table will be created in BigQuery day wise, based on event_time field in kafka message.
