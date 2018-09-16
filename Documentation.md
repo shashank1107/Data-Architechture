@@ -84,7 +84,7 @@ GET /api/v1/config/:ip
 ```
 
 Fault detection logic:
-``` python
+```
 while true:
 	for ip in config.nodes:
 		if (now - ip.ts) > 3min:
@@ -156,7 +156,7 @@ Maintain updated profiles of influencers to get recent data, rank and average ac
 1M documents in all => ~76MB
 
 Logic:
-``` json
+```
 <!--keeps profiles in application memory-->
 profiles_cache = {					
 	"1000001": {
@@ -164,7 +164,7 @@ profiles_cache = {
 		"username": "influencer-1000001",
 		"followerCount": 5000,
 		"followingCount": 1356,
-		“ready_to_sync?”: true
+		"ready_to_sync?": true
 	},
 	...
 }
@@ -199,7 +199,7 @@ while true:
 Schema:
 Database Name: affable_influencers, 
 collection name: influencers
-``` json
+``` 
 {
   "pk": "long UNIQUE",
   "username": "String",
@@ -271,7 +271,7 @@ while true:
 	redisClient.setex(msg.pk + '_' + ts_now + '_' + "sync", 600, msg)
 ```
 Reads from redis and syncs data with mongo
-``` python
+```
 while true:
     # mongo bulk initialization
 	bulk = initializeUnorderedBulkOp()		
