@@ -330,12 +330,7 @@ CREATE TABLE mydataset.newtable
 REST endpoints:
 It is a streaming API. Fetches time series data of an influencer from mongo (affable_timeseries DB) based on from_date and to_date parameter
 ``` sh
-POST /api/v1/influencer/timeseries/
-	{
-	“pk” : “1000050”,
-	“from_date”: “Thu Jan 01 1970 05:29:59 GMT+0530 (IST)”,
-“to_date”: “Sun Sep 16 2018 20:08:17 GMT+0530 (IST)”
-}
+GET /api/v1/influencer/timeseries/:pk?from_date=Thu Jan 01 1970 05:29:59 GMT+0530 (IST)&to_date=Sun Sep 16 2018 20:08:17 GMT+0530 (IST)
 ```
 ``` sh
 GET /api/v1/influencer/:pk
