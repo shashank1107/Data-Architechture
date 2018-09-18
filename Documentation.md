@@ -188,10 +188,9 @@ while true:
 			pk.ready_to_sync = false
 			bulk_doc_count++
         <!--batching into 50K and then bulk API mongo-->
-		if bulk_doc_count/50,000 == 0:	     
+		if bulk_doc_count % 50,000 == 0:	     
 			bulk.execute()
 			bulk = initializeUnorderedBulkOp()
-			bulk_doc_count=0
 			continue
 ```
 
