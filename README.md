@@ -1,4 +1,4 @@
-### Data pipeline for extracting data from the public social media platform API and help visualize following properties of an influencer over time:
+### Data pipeline for extracting data from the social media platform public API and help visualize following properties of an influencer over time:
 
 - followerCount
 - followingCount
